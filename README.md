@@ -15,7 +15,7 @@ This is a Streamlit-based web application that checks for potential drug interac
 You can find the dataset on my [Kaggle profile](https://www.kaggle.com/datasets/mghobashy/drug-drug-interactions)
 
 The drug interaction dataset used in this app was created by:
-1. **Source**: Downloading interaction data from [The Drug-Drug Interaction (DDI) source](https://tdcommons.ai/multi_pred_tasks/ddi/).
+1. **Source**: Downloading interaction data from [Therapeutics Data Commons](https://tdcommons.ai/multi_pred_tasks/ddi/).
 2. **Mapping Interactions**: The interaction mapping provided by the website was used to map interaction types.
 3. **Drug Name Mapping**: Drug IDs were obtained from the dataset, and the corresponding drug names were mapped by querying the **DrugBank** database to match Drug IDs to actual drug names.
 
