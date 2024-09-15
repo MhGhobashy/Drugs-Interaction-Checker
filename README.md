@@ -1,6 +1,7 @@
 # Drug Interaction Checker
 
 This is a Streamlit-based web application that checks for potential drug interactions based on active ingredients extracted from images. The app uses Optical Character Recognition (OCR) to extract text from images of drug labels, performs fuzzy matching to identify active ingredients, and then checks for interactions using a drug interaction dataset.
+![image](https://github.com/user-attachments/assets/37abfc71-b023-4c2d-ac6d-86ec1d6eef23)
 
 ## Features
 
