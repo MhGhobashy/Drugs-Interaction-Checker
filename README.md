@@ -30,8 +30,8 @@ Upload Images: Upload two images containing drug names or drug labels.
 Extract and Identify Active Ingredients: The app will extract text using OCR, clean it up, and identify potential active ingredients using fuzzy matching.
 Check for Interactions: The app compares the identified active ingredients from both images and checks the dataset for known interactions.
 Visual Feedback: The app displays interaction results in green or red boxes:
-  Green Box: No interaction found.
-  Red Box: Interaction detected.
+- Green Box: No interaction found.
+- Red Box: Interaction detected.
 
 Special Cases
 If the word `Vitamin` is detected, the app will also check the word following Vitamin (e.g., Vitamin A, Vitamin C) to ensure proper identification.
