@@ -20,9 +20,9 @@ The drug interaction dataset used in this app was created by:
 3. **Drug Name Mapping**: Drug IDs were obtained from the dataset, and the corresponding drug names were mapped by querying the **DrugBank** database to match Drug IDs to actual drug names.
 
 The dataset contains the following columns:
-    - `Drug 1`: Name of the first drug
-    - `Drug 2`: Name of the second drug
-    - `Interaction Description`: A description of the interaction between the two drugs
+-  `Drug 1`: Name of the first drug
+-  `Drug 2`: Name of the second drug
+-  `Interaction Description`: A description of the interaction between the two drugs
     
 ## Usage
 
