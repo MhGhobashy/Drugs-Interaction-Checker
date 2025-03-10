@@ -1,42 +1,83 @@
-# Drug Interaction Checker
+the key differences between the previous version (v1) and the current version (v2) of the Drug Interaction Checker application.
 
-This is a Streamlit-based web application that checks for potential drug interactions based on active ingredients extracted from images. The app uses Optical Character Recognition (OCR) to extract text from images of drug labels, performs fuzzy matching to identify active ingredients, and then checks for interactions using a drug interaction dataset.
-![image](https://github.com/user-attachments/assets/37abfc71-b023-4c2d-ac6d-86ec1d6eef23)
+#Overview
+The Drug Interaction Checker is a Streamlit-based application that:
+Takes images of drug packaging as input
+Uses OCR (Optical Character Recognition) to extract text
+Identifies active ingredients using fuzzy matching
+Checks for potential drug-drug interactions against a database
 
-## Features
+#Version Comparison
+1. Multiple Image Support
+v1:
+Only accepted exactly 2 images for comparison
+Limited to checking interactions between two drugs
 
-- **EasyOCR Integration**: Extracts text from uploaded images.
-- **Fuzzy Matching**: Uses `rapidfuzz` to identify active ingredients even with variations in spelling.
-- **Drug Interaction Lookup**: Searches a dataset for known interactions between active ingredients.
-- **User-Friendly Interface**: Upload two images, see extracted active ingredients, and check for potential interactions.
-- **Responsive Design**: Modern, sleek interface with visual feedback (colored boxes) for interactions.
+v2:
+Accepts multiple images (2 or more)
+Checks all possible combinations of identified ingredients
+More practical for real-world scenarios where users might have multiple medications
 
-## Dataset
+2. User Interface Improvements
+v1:
+Basic two-column layout for images
+Bright red/green colors for messages
 
-You can find the dataset on my [Kaggle profile](https://www.kaggle.com/datasets/mghobashy/drug-drug-interactions)
+v2:
+Dynamic layout that adapts to number of uploaded images
+Professional matte color scheme:
+Matte green (#4caf50) for success messages
+Matte red (#c94c4c) for interactions
+Matte gold (#ffd700) for warnings
+Matte slate (#607d8b) as neutral fallback
+Better visual hierarchy and readability
 
-The drug interaction dataset used in this app was created by:
-1. **Source**: Downloading interaction data from [Therapeutics Data Commons](https://tdcommons.ai/multi_pred_tasks/ddi/).
-2. **Mapping Interactions**: The interaction mapping provided by the website was used to map interaction types.
-3. **Drug Name Mapping**: Drug IDs were obtained from the dataset, and the corresponding drug names were mapped by querying the **DrugBank** database to match Drug IDs to actual drug names.
+3. Technical Updates
+v1:
+Used deprecated Streamlit parameter use_column_width
 
-The dataset contains the following columns:
--  `Drug 1`: Name of the first drug
--  `Drug 2`: Name of the second drug
--  `Interaction Description`: A description of the interaction between the two drugs
-    
-## Usage
+v2:
+Updated to use use_container_width instead
+Better temporary file handling with proper cleanup
+More efficient ingredient deduplication using Python sets
 
-Upload Images: Upload two images containing drug names or drug labels.
-Extract and Identify Active Ingredients: The app will extract text using OCR, clean it up, and identify potential active ingredients using fuzzy matching.
-Check for Interactions: The app compares the identified active ingredients from both images and checks the dataset for known interactions.
-Visual Feedback: The app displays interaction results in green or red boxes:
-- Green Box: No interaction found.
-- Red Box: Interaction detected.
+4. Enhanced Error Handling
+v1:
+Basic handling of unknown ingredients
 
-Special Cases
-If the word `Vitamin` is detected, the app will also check the word following Vitamin (e.g., Vitamin A, Vitamin C) to ensure proper identification.
+v2:
+Better handling of edge cases:
+Unknown ingredients are clearly marked
+Minimum ingredient count check (at least 2 required)
+More informative warning messages
 
-## Contributing
+5. Code Structure
+v1:
+Hardcoded color values throughout the code
+Less modular design
 
-Feel free to open issues or submit pull requests if you'd like to contribute to this project. All contributions are welcome!
+v2:
+Centralized color management through COLOR dictionary
+More modular and maintainable code structure
+Better separation of concerns
+
+#How to Use v2
+Upload multiple images of drug packaging
+The app will:
+Display each image with identified ingredients
+Check all possible pairs of ingredients
+Show interaction results with color-coded messages
+
+Results include:
+Identified ingredients for each image
+Interactions between all ingredient pairs
+Warnings for unknown ingredients
+
+#Future Improvements
+Add support for PDF uploads
+Include drug dosage information in interaction checks
+Implement user accounts for saving medication history
+Add mobile-friendly interface
+Support for additional languages in OCR
+
+This version represents a significant improvement in functionality, usability, and code quality while maintaining the core purpose of helping users identify potential drug interactions.
