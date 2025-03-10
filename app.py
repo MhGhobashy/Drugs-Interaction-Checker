@@ -5,6 +5,8 @@ import easyocr
 from rapidfuzz import process, fuzz
 from itertools import combinations
 import os
+from PIL import Image
+import io
 
 # Load dataset
 data = pd.read_csv('db_drug_interactions.csv')
@@ -112,23 +114,29 @@ def process_images(uploaded_images, df):
     temp_files = []
 
     for i, image in enumerate(uploaded_images):
+        # Convert the uploaded file to an image object
+        img = Image.open(image)
+        
+        # Save temporary file (optional, for debugging)
         temp_path = f"temp_{i}.png"
-        with open(temp_path, "wb") as f:
-            f.write(image.getbuffer())
+        img.save(temp_path)
         temp_files.append(temp_path)
         
+        # Extract text from the image
         text = extract_text_from_image(temp_path)
         ingredients = identify_active_ingredient(text, unique_drugs)
         all_ingredients.extend(ingredients)
         
+        # Display the image and ingredients
         col1, col2 = st.columns([1, 3])
         with col1:
-            # Updated to use_container_width
-            st.image(image, use_container_width=True)
+            # Display the image directly from the file-like object
+            st.image(img, use_container_width=True)
         with col2:
             st.write(f"**Image {i+1} ingredients:**")
-            st.write(", ".join(ingredients) if ingredients else st.write("No ingredients identified"))
+            st.write(", ".join(ingredients) if ingredients else st.write("No ingredients identified")
 
+    # Clean up temporary files
     for file in temp_files:
         os.remove(file)
 
