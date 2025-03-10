@@ -134,7 +134,7 @@ def process_images(uploaded_images, df):
             st.image(img, use_container_width=True)
         with col2:
             st.write(f"**Image {i+1} ingredients:**")
-            st.write(", ".join(ingredients) if ingredients else st.write("No ingredients identified")
+            st.write(", ".join(ingredients) if ingredients else st.write("No ingredients identified"))
 
     # Clean up temporary files
     for file in temp_files:
