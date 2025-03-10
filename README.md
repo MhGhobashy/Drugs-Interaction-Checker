@@ -1,13 +1,13 @@
-the key differences between the previous version (v1) and the current version (v2) of the Drug Interaction Checker application.
+The key differences between the previous version (v1) and the current version (v2) of the Drug Interaction Checker application.
 
-#Overview
+# Overview
 The Drug Interaction Checker is a Streamlit-based application that:
 Takes images of drug packaging as input
 Uses OCR (Optical Character Recognition) to extract text
 Identifies active ingredients using fuzzy matching
 Checks for potential drug-drug interactions against a database
 
-#Version Comparison
+# Version Comparison
 1. Multiple Image Support
 v1:
 Only accepted exactly 2 images for comparison
@@ -61,7 +61,7 @@ Centralized color management through COLOR dictionary
 More modular and maintainable code structure
 Better separation of concerns
 
-#How to Use v2
+# How to Use v2
 Upload multiple images of drug packaging
 The app will:
 Display each image with identified ingredients
@@ -73,7 +73,7 @@ Identified ingredients for each image
 Interactions between all ingredient pairs
 Warnings for unknown ingredients
 
-#Future Improvements
+# Future Improvements
 Add support for PDF uploads
 Include drug dosage information in interaction checks
 Implement user accounts for saving medication history
