@@ -4,4 +4,3 @@ easyocr==1.7.1
 rapidfuzz==3.4.0
 opencv-python-headless==4.8.1.78
 python-multipart==0.0.6
-Pillow==10.1.0
