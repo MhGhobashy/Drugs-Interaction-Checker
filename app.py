@@ -130,11 +130,14 @@ def process_images(uploaded_images, df):
         # Display the image and ingredients
         col1, col2 = st.columns([1, 3])
         with col1:
-            # Display the image directly from the file-like object
-            st.image(img, use_container_width=True)
+            # Convert PIL.Image to bytes and display using st.image
+            img_bytes = io.BytesIO()
+            img.save(img_bytes, format='PNG')
+            img_bytes.seek(0)
+            st.image(img_bytes, use_container_width=True)
         with col2:
             st.write(f"**Image {i+1} ingredients:**")
-            st.write(", ".join(ingredients) if ingredients else st.write("No ingredients identified"))
+            st.write(", ".join(ingredients) if ingredients else "No ingredients identified")
 
     # Clean up temporary files
     for file in temp_files:
